@@ -41,10 +41,11 @@ tableHelp = """
 
 
 class Figure():
-    def __init__(self, type, position, color):
+    def __init__(self, type, position, color, steps):
         self.type = type
         self.position = position
         self.color = color
+        self.steps = steps
 
 
 def tableBuilder():
@@ -132,7 +133,7 @@ def numberToLetter(number):
         return False
 
 
-def availableSteps(position, figure, color):
+def availableSteps(position, figure, color, steps):
     figures = {"pa": [[0, 1, False], [0, 2, False]],
                "bi": [[-1, 1, True], [1, 1, True], [-1, -1, True], [+1, -1, True]],
                "kn": [[-1, 2, False], [-2, 1, False], [-2, -1, False], [-1, -2, False], [1, -2, False], [2, -1, False], [2, 1, False], [1, 2, False]],
@@ -152,8 +153,9 @@ def availableSteps(position, figure, color):
                 temp[1] = temp[1] - i[1]
             if checkIfFree(temp):
                 availables.append(temp)
-            elif figure == "pa":
-                break
+            if figure == "pa":
+                if steps > 0:
+                    break
         elif i[2] == True:
             counter = 1
             while True:
@@ -195,9 +197,9 @@ def spawn():
 
     spawned = []
     for i in temp:
-        spawned.append(Figure(i[0], i[1], i[2]))
+        spawned.append(Figure(i[0], i[1], i[2], 0))
     for i in temp2:
-        spawned.append(Figure(i[0], i[1], i[2]))
+        spawned.append(Figure(i[0], i[1], i[2], 0))
 
     for i in range(len(spawned)):
         logic2[spawned[i].position[0]][spawned[i].position[1]] = spawned[i]
@@ -207,6 +209,7 @@ def spawn():
         else:
             logic[spawned[i].position[0]
                   ][spawned[i].position[1]] = spawned[i].type
+        
 
 
 def help():
@@ -229,10 +232,11 @@ def focus(todo, color):
                 l1 = logic[todo[1]][todo[2]]
                 l2 = logic2[todo[1]][todo[2]]
                 availables = availableSteps([todo[1], todo[2]],
-                                            logic2[todo[1]][todo[2]].type, logic2[todo[1]][todo[2]].color)
+                                            logic2[todo[1]][todo[2]].type, logic2[todo[1]][todo[2]].color, logic2[todo[1]][todo[2]].steps)
                 availablesH = []
                 if availables == []:
                     return False
+                logic2[todo[1]][todo[2]].steps += 1
                 for array in range(len(availables)):
                     temp = []
                     for number in range(len(availables[array])):
