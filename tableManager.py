@@ -30,7 +30,6 @@ class Empty(Figure):
     fiType = "  "
     def __init__(self, position, color):
         super().__init__(position, color)
-        self.fiType = Empty.fiType
 
 class Rook(Figure):
     fiType = "RO"
@@ -38,7 +37,6 @@ class Rook(Figure):
 
     def __init__(self, position, color):
         super().__init__(position, color)
-        self.fiType = Rook.fiType
 
 class Knight(Figure):
     fiType = "KN"
@@ -46,7 +44,6 @@ class Knight(Figure):
     
     def __init__(self, position, color):
         super().__init__(position, color)
-        self.fiType = Knight.fiType
 
 class Bishop(Figure):
     fiType = "BI"
@@ -54,7 +51,6 @@ class Bishop(Figure):
 
     def __init__(self, position, color):
         super().__init__(position, color)
-        self.fiType = Bishop.fiType
 
 class Queen(Figure):
     fiType = "QU"
@@ -63,15 +59,12 @@ class Queen(Figure):
 
     def __init__(self, position, color):
         super().__init__(position, color)
-        self.fiType = Queen.fiType
-
 class King(Figure):
     fiType = "KI"
     movement = [[0, 1, False], [-1, 1, False], [-1, 0, False], [-1, -1, False], [0, -1, False], [1, -1, False], [1, 0, False], [1, 1, False]]
 
     def __init__(self, position, color):
         super().__init__(position, color)
-        self.fiType = King.fiType
 
 class Pawn(Figure):
     fiType = "PA"
@@ -79,7 +72,6 @@ class Pawn(Figure):
     
     def __init__(self, position, color):
         super().__init__(position, color)
-        self.fiType = Pawn.fiType
 
 a = Table()
 print(a.tableLogic[0][3])
