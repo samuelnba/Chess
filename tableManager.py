@@ -14,6 +14,29 @@ class Table():
     def newTable(cls):
         Table.current = Table()
 
+    @classmethod
+    def printTable(cls):
+        return f"""
+                  +----+----+----+----+----+----+----+----+
+                H | {Table.current.tableLogic[0][0]} | {Table.current.tableLogic[0][1]} | {Table.current.tableLogic[0][2]} | {Table.current.tableLogic[0][3]} | {Table.current.tableLogic[0][4]} | {Table.current.tableLogic[0][5]} | {Table.current.tableLogic[0][6]} | {Table.current.tableLogic[0][7]} |
+                  +----+----+----+----+----+----+----+----+
+                G | {Table.current.tableLogic[1][0]} | {Table.current.tableLogic[1][1]} | {Table.current.tableLogic[1][2]} | {Table.current.tableLogic[1][3]} | {Table.current.tableLogic[1][4]} | {Table.current.tableLogic[1][5]} | {Table.current.tableLogic[1][6]} | {Table.current.tableLogic[1][7]} |
+                  +----+----+----+----+----+----+----+----+
+                F | {Table.current.tableLogic[2][0]} | {Table.current.tableLogic[2][1]} | {Table.current.tableLogic[2][2]} | {Table.current.tableLogic[2][3]} | {Table.current.tableLogic[2][4]} | {Table.current.tableLogic[2][5]} | {Table.current.tableLogic[2][6]} | {Table.current.tableLogic[2][7]} |
+                  +----+----+----+----+----+----+----+----+
+                E | {Table.current.tableLogic[3][0]} | {Table.current.tableLogic[3][1]} | {Table.current.tableLogic[3][2]} | {Table.current.tableLogic[3][3]} | {Table.current.tableLogic[3][4]} | {Table.current.tableLogic[3][5]} | {Table.current.tableLogic[3][6]} | {Table.current.tableLogic[3][7]} |
+                  +----+----+----+----+----+----+----+----+
+                D | {Table.current.tableLogic[4][0]} | {Table.current.tableLogic[4][1]} | {Table.current.tableLogic[4][2]} | {Table.current.tableLogic[4][3]} | {Table.current.tableLogic[4][4]} | {Table.current.tableLogic[4][5]} | {Table.current.tableLogic[4][6]} | {Table.current.tableLogic[4][7]} |
+                  +----+----+----+----+----+----+----+----+
+                C | {Table.current.tableLogic[5][0]} | {Table.current.tableLogic[5][1]} | {Table.current.tableLogic[5][2]} | {Table.current.tableLogic[5][3]} | {Table.current.tableLogic[5][4]} | {Table.current.tableLogic[5][5]} | {Table.current.tableLogic[5][6]} | {Table.current.tableLogic[5][7]} |
+                  +----+----+----+----+----+----+----+----+
+                B | {Table.current.tableLogic[6][0]} | {Table.current.tableLogic[6][1]} | {Table.current.tableLogic[6][2]} | {Table.current.tableLogic[6][3]} | {Table.current.tableLogic[6][4]} | {Table.current.tableLogic[6][5]} | {Table.current.tableLogic[6][6]} | {Table.current.tableLogic[6][7]} |
+                  +----+----+----+----+----+----+----+----+
+                A | {Table.current.tableLogic[7][0]} | {Table.current.tableLogic[7][1]} | {Table.current.tableLogic[7][2]} | {Table.current.tableLogic[7][3]} | {Table.current.tableLogic[7][4]} | {Table.current.tableLogic[7][5]} | {Table.current.tableLogic[7][6]} | {Table.current.tableLogic[7][7]} |
+                  +----+----+----+----+----+----+----+----+
+                    1    2    3    4    5    6    7    8
+                """
+
 # / --------------- \
 #  Figure Prototypes 
 # \ --------------- /
@@ -73,5 +96,8 @@ class Pawn(Figure):
     def __init__(self, position, color):
         super().__init__(position, color)
 
-a = Table()
-print(a.tableLogic[0][3])
+# a = Table()
+# print(a.tableLogic[0][3])
+
+Table.newTable()
+print(Table.printTable())
