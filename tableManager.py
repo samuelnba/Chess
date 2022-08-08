@@ -47,6 +47,8 @@ class Figure():
         self.color = color
 
     def __str__(self):
+        if self.color == "B":
+            return "\u001b[34m" + self.fiType + "\u001b[37m"
         return self.fiType
 
 class Empty(Figure):
@@ -96,8 +98,6 @@ class Pawn(Figure):
     def __init__(self, position, color):
         super().__init__(position, color)
 
-# a = Table()
-# print(a.tableLogic[0][3])
 
 Table.newTable()
 print(Table.printTable())
