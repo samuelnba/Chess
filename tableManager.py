@@ -23,52 +23,63 @@ class Figure():
         self.position = position
         self.color = color
 
+    def __str__(self):
+        return self.fiType
+
 class Empty(Figure):
+    fiType = "  "
     def __init__(self, position, color):
         super().__init__(position, color)
+        self.fiType = Empty.fiType
 
 class Rook(Figure):
-    type = "RO"
+    fiType = "RO"
     movement = [[0, 1, True], [0, -1, True], [-1, 0, True], [1, 0, True]]
 
     def __init__(self, position, color):
         super().__init__(position, color)
+        self.fiType = Rook.fiType
 
 class Knight(Figure):
-    type = "KN"
+    fiType = "KN"
     movement = [[-1, 2, False], [-2, 1, False], [-2, -1, False], [-1, -2, False], [1, -2, False], [2, -1, False], [2, 1, False], [1, 2, False]]
     
     def __init__(self, position, color):
         super().__init__(position, color)
+        self.fiType = Knight.fiType
 
 class Bishop(Figure):
-    type = "BI"
+    fiType = "BI"
     movement = [[-1, 1, True], [1, 1, True], [-1, -1, True], [+1, -1, True]]
 
     def __init__(self, position, color):
         super().__init__(position, color)
+        self.fiType = Bishop.fiType
 
 class Queen(Figure):
-    type = "QU"
+    fiType = "QU"
     movement = [[0, 1, False], [-1, 1, False], [-1, 0, False], [-1, -1, False], [0, -1, False], [1, -1, False], [1, 0, False], [1, 1, False],
                       [0, 1, True], [0, -1, True], [-1, 0, True], [1, 0, True], [-1, 1, True], [1, 1, True], [-1, -1, True], [+1, -1, True]]
 
     def __init__(self, position, color):
         super().__init__(position, color)
+        self.fiType = Queen.fiType
 
 class King(Figure):
-    type = "KI"
+    fiType = "KI"
     movement = [[0, 1, False], [-1, 1, False], [-1, 0, False], [-1, -1, False], [0, -1, False], [1, -1, False], [1, 0, False], [1, 1, False]]
 
     def __init__(self, position, color):
         super().__init__(position, color)
+        self.fiType = King.fiType
 
 class Pawn(Figure):
-    type = "PA"
+    fiType = "PA"
     movement = [[0, 1, False], [0, 2, False]]
     
     def __init__(self, position, color):
         super().__init__(position, color)
+        self.fiType = Pawn.fiType
 
-# a = Table()
-# print(a.tableLogic[5][0].position)
+a = Table()
+print(a.tableLogic[0][3])
