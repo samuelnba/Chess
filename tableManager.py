@@ -99,5 +99,5 @@ class Pawn(Figure):
         super().__init__(position, color)
 
 
-Table.newTable()
-print(Table.printTable())
+# Table.newTable()
+# print(Table.printTable())
